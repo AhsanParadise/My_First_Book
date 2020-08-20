@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My First Book</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section>
+      <div class="book" onmousewheel="changeBack()">
+        <img src="img/1.jpg" />
+      </div>
+    </section>
+    <script>
+      function changeBack() {
+        document.body.style.background = "pink";
+        document.body.style.transition = "1.5s";
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,87 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #ddd;
+  animation: goodlook 2s ease-in-out;
+}
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  animation: pulse 3.5s ease-in-out infinite;
+}
+section .book {
+  position: relative;
+  width: 383px;
+  height: 567px;
+  box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.2);
+  transform-style: preserve-3d;
+  transition: 0.5s;
+}
+section .book:hover {
+  transform: rotateY(35deg);
+  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.2);
+}
+section .book:active {
+  transform: rotateY(180deg);
+}
+section .book::before {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 100%;
+  transform-origin: left;
+  background: url(img/2.jpg);
+  background-position: center;
+  transform: rotateY(90deg);
+}
+section .book::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-origin: center;
+  background: url(img/3.jpg);
+  background-position: center;
+  transform: rotateY(180deg) translateZ(60px);
+}
+section .book img {
+  position: absolute;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes goodlook {
+  from {
+    opacity: 0;
+    transform: scale3d(0.1, 0.1, 0.1) translate3d(0, -1000px, 0);
+    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+
+  60% {
+    opacity: 1;
+    transform: scale3d(0.475, 0.475, 0.475) translate3d(0, 60px, 0);
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
+  }
+}
